@@ -24,10 +24,10 @@ void setup() {
   robot.setAutoDelay(40);
   robot.setAutoWaitForIdle(true);
 
-  println(Serial.list());
+  printArray(Serial.list());
   // Run this sketch once and look for your Arduino port in
   // the list. Adjust the portumber between the [] brackets below:
-  String portName = Serial.list()[10];
+  String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
 }
 
