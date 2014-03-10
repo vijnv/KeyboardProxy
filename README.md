@@ -25,6 +25,7 @@ The following code checks an analog sensor at pin A0 and sends a  "_" character 
 
 ```Arduino
 int sensorPin = A0;
+int prevValue = 0;
 
 void setup() {
     Serial.begin(9600);
@@ -32,9 +33,8 @@ void setup() {
 
 void loop() {
     int value = analogRead(sensorPin);
-    if (value > 300) {
+    if (value > 300 && prevValue <= 300) {
         Serial.write("_");
     }
+    prevValue = value;
 }
-
-
